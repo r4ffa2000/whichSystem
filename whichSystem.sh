@@ -19,7 +19,7 @@ function main() {
 	ttl=$(ping -c 1 $host | grep -oP "ttl=\d{1,3}" | cut -d "=" -f 2)
 	if [ $ttl -le 64 ];then
 		echo -e "${green}This system is Linux ${white}TTL ${red}-> ${white}$ttl$reset"
-	elif [ $ttl -gt 64 ] && [ $ttl -lt 128 ];then
+	elif [ $ttl -gt 64 ] && [ $ttl -le 128 ];then
 		echo -e "${green}This system is Windows ${white}TTL ${red}-> ${white}$ttl$reset"
 	fi
 }
